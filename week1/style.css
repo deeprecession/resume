@@ -1,0 +1,141 @@
+html,
+body {
+	width: 95%;
+	margin: auto;
+	display: flex;
+	background-color: #98d49a;
+	font-family: monospace;
+	flex-flow: column;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	padding-top: 4rem;
+}
+
+.blog-post,
+#about {
+	font-size: 1.4rem;
+	line-height: 1.6;
+	margin-bottom: 4rem;
+}
+
+#blog-author {
+	font-size: 2rem;
+	margin-bottom: 0.5rem;
+}
+
+a {
+	color: black;
+}
+
+hr {
+	border: none;
+	height: 3px;
+	background-color: #000;
+	width: 100%;
+	margin-top: 3rem;
+}
+
+#contacts {
+	font-size: 1.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+#contacts img {
+	width: 1.5rem;
+	height: auto;
+	vertical-align: middle;
+}
+
+#contacts a {
+	text-decoration: none;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+#info .separator {
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+}
+
+#contacts a span {
+	text-decoration: underline;
+	vertical-align: middle;
+	font-size: 1.25rem;
+}
+
+#info {
+	display: flex;
+	flex-flow: wrap;
+	justify-content: space-between;
+	margin-bottom: 4rem;
+}
+
+#navigation a {
+	vertical-align: middle;
+	font-size: 1.5rem;
+}
+
+#navigation {
+	font-size: 1.5rem;
+	display: flex;
+	justify-content: left;
+	margin-left: 2rem;
+}
+
+#blog-form {
+	margin-top: 4rem;
+	margin-bottom: 2rem;
+	display: flex;
+	flex-direction: column;
+}
+
+#blog-form label {
+	margin-bottom: 0.5rem;
+	font-size: 1.2rem;
+}
+
+#blog-form input,
+#blog-form textarea {
+	margin-bottom: 1rem;
+	padding: 0.5rem;
+	font-size: 1rem;
+	max-width: 100%;
+	box-sizing: border-box;
+	background: transparent;
+	border: 0.2rem solid black;
+	border-radius: 10px;
+}
+
+#blog-form textarea {
+	width: 100%;
+}
+
+#blog-form input {
+	width: 50%;
+}
+
+#blog-form button {
+	padding: 0.75rem;
+	font-size: 1.2rem;
+	background-color: #377539;
+	color: white;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+}
+
+#blog-form button:hover {
+	background-color: #45a049;
+}
+
+.blog-post-title {
+	font-size: 2rem;
+}
+
+@media only screen and (min-width: 1440px) {
+	body {
+		width: 60%;
+	}
+}

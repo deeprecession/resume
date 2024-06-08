@@ -1,0 +1,20 @@
+---
+name: Validate HTML
+on: [push, pull_request]
+jobs:
+  html-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: temurin
+          java-version: '11'
+      - name: Download vnu-jar
+        run: wget https://github.com/validator/validator/releases/download/20.6.30/vnu.jar_20.6.30.zip
+      - name: Unzip vnu-jar
+        run: unzip vnu.jar_20.6.30.zip -d vnu-jar
+      - name: Validate HTML files
+        run: java -jar vnu-jar/vnu.jar_20.6.30/vnu.jar .

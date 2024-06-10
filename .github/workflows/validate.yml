@@ -1,6 +1,9 @@
----
 name: Validate HTML
-on: [push, pull_request]
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+  workflow_dispatch:
 jobs:
   html-validation:
     runs-on: ubuntu-latest
@@ -11,7 +14,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           distribution: temurin
-          java-version: '11'
+          java-version: "11"
       - name: Get latest vnu.jar release URL
         id: get_release
         run: |
@@ -29,7 +32,16 @@ jobs:
         run: |-
           find . -name '*.html' > html_files.txt
           if [ -s html_files.txt ]; then
-            java -jar vnu-jar/vnu.jar --errors-only --exit-zero --skip-non-html --Werror $(cat html_files.txt)
+            java -jar vnu-jar/vnu.jar --errors-only --skip-non-html --Werror $(cat html_files.txt)
           else
             echo "No HTML files found to validate."
           fi
+      - name: Create validation status
+        if: success()
+        run: echo "Validation passed" > validation_status.txt
+      - name: Upload validation status artifact
+        if: success()
+        uses: actions/upload-artifact@v2
+        with:
+          name: validation-status
+          path: validation_status.txt

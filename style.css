@@ -29,6 +29,8 @@ body {
 }
 
 .blog-post,
+.project,
+#projects-container,
 #about-container {
 	font-size: 1.4rem;
 	line-height: 1.6;
@@ -59,16 +61,21 @@ hr {
 	justify-content: flex-end;
 }
 
-#contacts img {
-	width: 1.5rem;
-	height: auto;
-	vertical-align: middle;
+.link-img {
+	display: flex;
 }
 
-#contacts a {
+.link-img img {
+	width: 2rem;
+	height: fit-content;
+	vertical-align: middle;
+	margin-right: 0.3rem;
+	margin-left: 0.3rem;
+}
+
+.link-img a {
 	text-decoration: none;
 	vertical-align: middle;
-	display: inline-block;
 }
 
 #info .separator {
@@ -76,7 +83,7 @@ hr {
 	margin-right: 0.5rem;
 }
 
-#contacts a span {
+.link-img a div {
 	text-decoration: underline;
 	vertical-align: middle;
 	font-size: 1.25rem;

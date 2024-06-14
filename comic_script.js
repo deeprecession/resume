@@ -20,7 +20,7 @@ function createComicElement(comicJson) {
 	comicImage.className = "comic-image";
 
 	let comicTitle = document.createElement("div");
-	comicTitle.innerText = comicJson.safe_title;
+	comicTitle.textContent = comicJson.safe_title;
 	comicTitle.className = "comic-title";
 
 	let comicUploadDateElement = document.createElement("div");
@@ -29,7 +29,7 @@ function createComicElement(comicJson) {
 		comicJson.month,
 		comicJson.day,
 	);
-	comicUploadDateElement.innerText =
+	comicUploadDateElement.textContent =
 		comicUploadDate.toLocaleDateString("en-GB");
 	comicUploadDateElement.className = "comic-upload-date";
 

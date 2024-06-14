@@ -34,6 +34,24 @@ body {
 	margin-bottom: 4rem;
 }
 
+.comic {
+	display: flex;
+	flex-flow: column;
+	gap: 1rem;
+}
+
+.comic-title {
+	font-size: 2rem;
+}
+
+.comic-image {
+	width: 100%;
+}
+
+.comic-upload-date {
+	align-self: flex-end;
+}
+
 .blog-post,
 .project,
 #projects-container,

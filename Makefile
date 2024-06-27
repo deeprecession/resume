@@ -1,4 +1,3 @@
 
 zip:
-	zip ./VladislavKishkovskiy.zip --exclude="*.zip" --exclude="tags" **
-
+	git archive  --format=zip main -o VladislavKishkovskiy.zip

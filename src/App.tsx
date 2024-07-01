@@ -10,7 +10,7 @@ export default function App() {
 						className="link-img"
 						href="https://github.com/deeprecession/"
 					>
-						<img src="/github-mark.svg" alt="GitHub svg" />
+						<img src="github-mark.svg" alt="GitHub svg" />
 						<div>GitHub</div>
 					</a>
 
@@ -21,7 +21,7 @@ export default function App() {
 						className="link-img"
 						href="https://t.me/deeprecession"
 					>
-						<img src="/telegram-mark.svg" alt="telegram svg" />
+						<img src="telegram-mark.svg" alt="telegram svg" />
 						<span>Telegram</span>
 					</a>
 
@@ -32,7 +32,7 @@ export default function App() {
 						className="link-img"
 						href="mailto:v.kishkovskiy@innopolis.university"
 					>
-						<img src="/email-mark.svg" alt="email svg" />
+						<img src="email-mark.svg" alt="email svg" />
 						<span>Email</span>
 					</a>
 				</div>

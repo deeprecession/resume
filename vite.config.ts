@@ -2,8 +2,10 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 
 export default defineConfig(({ mode }) => {
+  const isGithubPages = process.env.DEPLOY_ENV === "GH_PAGES";
+
   return {
-    base: mode === "production" ? "/inno-frontend-course/" : "/",
+    base: isGithubPages ? "/inno-frontend-course/" : "/",
     plugins: [react()],
   };
 });

@@ -20,9 +20,7 @@ jobs:
         run: npm install
       - name: Build project
         run: |
-          npm run build
-      - name: Build project
-        run: npm run build
+          DEPLOY_ENV=GH_PAGES npm run build
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:

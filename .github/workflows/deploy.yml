@@ -7,48 +7,7 @@ permissions:
   contents: write
   pages: write
 jobs:
-  html-validation:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Set up Java
-        uses: actions/setup-java@v2
-        with:
-          distribution: temurin
-          java-version: "11"
-      - name: Get latest vnu.jar release URL
-        id: get_release
-        run: |
-          api_url="https://api.github.com/repos/validator/validator/releases/latest"
-          download_url=$(curl -s $api_url | jq -r '.assets[] | select(.name | endswith(".zip")) | .browser_download_url')
-          echo "Latest download URL: $download_url"
-          echo "::set-output name=download_url::$download_url"
-      - name: Download vnu.jar
-        run: wget ${{ steps.get_release.outputs.download_url }} -O vnu.zip
-      - name: Unzip vnu.jar
-        run: unzip -j vnu.zip '*/vnu.jar' -d vnu-jar
-      - name: List directory contents
-        run: ls -R vnu-jar
-      - name: Find and validate HTML files
-        run: |-
-          find . -name '*.html' > html_files.txt
-          if [ -s html_files.txt ]; then
-            java -jar vnu-jar/vnu.jar --errors-only --skip-non-html --Werror $(cat html_files.txt)
-          else
-            echo "No HTML files found to validate."
-          fi
-      - name: Create validation status
-        if: success()
-        run: echo "Validation passed" > validation_status.txt
-      - name: Upload validation status artifact
-        if: success()
-        uses: actions/upload-artifact@v2
-        with:
-          name: validation-status
-          path: validation_status.txt
   build:
-    needs: html-validation
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository

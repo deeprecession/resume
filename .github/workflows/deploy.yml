@@ -20,7 +20,6 @@ jobs:
         run: npm install
       - name: Build project
         run: |
-          export BASE_URL=${{ github.repository }}
           npm run build
       - name: Build project
         run: npm run build

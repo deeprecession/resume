@@ -1,5 +1,5 @@
 import moment from "moment";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 interface Comic {
 	img: string;
@@ -13,31 +13,31 @@ interface Comic {
 export default function Comic() {
 	const [comic, setComic] = useState<Comic | null>(null);
 
-	useEffect(() => {
-		loadComicImage();
-	}, []);
-
-	async function loadComicImage() {
-		let id: string | null = await fetchID();
+	const loadComicImage = useCallback(async () => {
+		const id: string | null = await fetchID();
 		if (id === null) {
 			return;
 		}
 
-		let comicJson: Comic = await fetchComicInfo(id);
+		const comicJson: Comic = await fetchComicInfo(id);
 		if (comicJson === null) {
 			return;
 		}
 
 		setComic(comicJson);
-	}
+	}, []);
+
+	useEffect(() => {
+		loadComicImage();
+	}, [loadComicImage]);
 
 	async function fetchComicInfo(id: string) {
-		let url = new URL("https://fwd.innopolis.university/api/comic");
+		const url = new URL("https://fwd.innopolis.university/api/comic");
 		url.searchParams.append("id", id);
 
 		let comicJson;
 		try {
-			let response = await fetch(url);
+			const response = await fetch(url);
 			comicJson = await response.json();
 		} catch (error) {
 			console.error("failed to make a request:", error);
@@ -49,7 +49,7 @@ export default function Comic() {
 	}
 
 	async function fetchID() {
-		let url = new URL("https://fwd.innopolis.university/api/hw2");
+		const url = new URL("https://fwd.innopolis.university/api/hw2");
 		url.searchParams.append("email", "v.kishkovksiy@innopolis.university");
 
 		let response;

@@ -1,7 +1,4 @@
-"use client";
-
 import moment from "moment";
-import { useCallback, useEffect, useState } from "react";
 
 interface Comic {
 	img: string;
@@ -12,27 +9,7 @@ interface Comic {
 	day: number;
 }
 
-export default function Comic() {
-	const [comic, setComic] = useState<Comic | null>(null);
-
-	const loadComicImage = useCallback(async () => {
-		const id: string | null = await fetchID();
-		if (id === null) {
-			return;
-		}
-
-		const comicJson: Comic | null = await fetchComicInfo(id);
-		if (comicJson === null) {
-			return;
-		}
-
-		setComic(comicJson);
-	}, []);
-
-	useEffect(() => {
-		loadComicImage();
-	}, [loadComicImage]);
-
+export default async function Comic() {
 	async function fetchComicInfo(id: string) {
 		const url = new URL("https://fwd.innopolis.university/api/comic");
 		url.searchParams.append("id", id);
@@ -54,7 +31,7 @@ export default function Comic() {
 		const url = new URL("https://fwd.innopolis.university/api/hw2");
 		url.searchParams.append("email", "v.kishkovksiy@innopolis.university");
 
-		let response;
+		let response: Response;
 		try {
 			response = await fetch(url);
 		} catch (error) {
@@ -66,7 +43,17 @@ export default function Comic() {
 		return await response.text();
 	}
 
-	return comic ? (
+	const id = await fetchID();
+	if (!id) {
+		return <div>Failed to load comic ID.</div>;
+	}
+
+	const comic = await fetchComicInfo(id);
+	if (!comic) {
+		return <div>Failed to load comic data.</div>;
+	}
+
+	return (
 		<div className="comic">
 			<div className="comic-title">{comic.safe_title}</div>
 			<img src={comic.img} alt={comic.alt} className="comic-image"></img>
@@ -74,7 +61,5 @@ export default function Comic() {
 				{moment([comic.year, comic.month, comic.day]).fromNow()}
 			</div>
 		</div>
-	) : (
-		<div>Loading...</div>
 	);
 }

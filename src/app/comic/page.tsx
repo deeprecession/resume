@@ -1,3 +1,5 @@
+"use client";
+
 import moment from "moment";
 import { useCallback, useEffect, useState } from "react";
 
@@ -19,7 +21,7 @@ export default function Comic() {
 			return;
 		}
 
-		const comicJson: Comic = await fetchComicInfo(id);
+		const comicJson: Comic | null = await fetchComicInfo(id);
 		if (comicJson === null) {
 			return;
 		}
@@ -35,7 +37,7 @@ export default function Comic() {
 		const url = new URL("https://fwd.innopolis.university/api/comic");
 		url.searchParams.append("id", id);
 
-		let comicJson;
+		let comicJson: Promise<Comic>;
 		try {
 			const response = await fetch(url);
 			comicJson = await response.json();

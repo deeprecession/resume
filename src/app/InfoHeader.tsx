@@ -1,15 +1,6 @@
-import { Link, Outlet } from "react-router-dom";
+import Link from "next/link";
 
-export default function App() {
-	return (
-		<>
-			<Info />
-			<Outlet />
-		</>
-	);
-}
-
-function Info() {
+export default function InfoHeader() {
 	return (
 		<>
 			<div id="blog-author">Vladislav Kishkovskiy</div>
@@ -49,11 +40,11 @@ function Info() {
 				</div>
 
 				<div id="navigation">
-					<Link to={""}>About</Link>
+					<Link href={"/"}>About</Link>
 					<span className="separator">|</span>
-					<Link to={"blog"}>Blog</Link>
+					<Link href={"/blog"}>Blog</Link>
 					<span className="separator">|</span>
-					<Link to={"comic"}>Comic</Link>
+					<Link href={"/comic"}>Comic</Link>
 				</div>
 			</div>
 		</>

@@ -1,3 +1,5 @@
+"use client";
+
 import { ChangeEvent, FC, MouseEvent, useState } from "react";
 
 interface BlogFormContent {

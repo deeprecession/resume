@@ -1,4 +1,5 @@
 import moment from "moment";
+import Image from "next/image";
 
 interface Comic {
 	img: string;
@@ -56,7 +57,13 @@ export default async function Comic() {
 	return (
 		<div className="comic">
 			<div className="comic-title">{comic.safe_title}</div>
-			<img src={comic.img} alt={comic.alt} className="comic-image"></img>
+			<Image
+				width={50}
+				height={50}
+				src={comic.img}
+				alt={comic.alt}
+				className="comic-image"
+			></Image>
 			<div className="comic-upload-date">
 				{moment([comic.year, comic.month, comic.day]).fromNow()}
 			</div>

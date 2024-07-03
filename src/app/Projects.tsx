@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Projects() {
 	return (
 		<div id="projects-container">
@@ -10,7 +12,12 @@ export default function Projects() {
 					className="link-img"
 					href="https://github.com/deeprecession/todolist-htmx-golang"
 				>
-					<img src="github-mark.svg" alt="GitHub svg" />
+					<Image
+						width={50}
+						height={50}
+						src="github-mark.svg"
+						alt="GitHub svg"
+					/>
 					<span>GitHub</span>
 				</a>
 
@@ -38,7 +45,8 @@ export default function Projects() {
 					<li>Redis: caches sessions</li>
 					<li>Prometheus: was added just because</li>
 					<li>
-						Make: contain many commands that are I'm too lazy to write again
+						Make: contain many commands that are I&apos;m too lazy to write
+						again
 					</li>
 				</ul>
 			</div>
@@ -50,7 +58,12 @@ export default function Projects() {
 					className="link-img"
 					href="https://github.com/deeprecession/moodle-notifications"
 				>
-					<img src="github-mark.svg" alt="GitHub svg" />
+					<Image
+						width={50}
+						height={50}
+						src="github-mark.svg"
+						alt="GitHub svg"
+					/>
 					<span>GitHub</span>
 				</a>
 

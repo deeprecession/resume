@@ -18,9 +18,9 @@ export default function About() {
 			<div id="bio">
 				<h1>Bio</h1>
 				<p>
-					Hi! I'm a student at Innopolis University. Currently learning backend
-					development in Golang. I found this language quite convenient and it
-					is popular.
+					Hi! I&apos;m a student at Innopolis University. Currently learning
+					backend development in Golang. I found this language quite convenient
+					and it is popular.
 				</p>
 
 				<p>

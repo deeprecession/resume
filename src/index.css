@@ -7,6 +7,7 @@
 html,
 body {
 	width: 95%;
+	height: 100%;
 	margin: auto;
 	display: flex;
 	background-color: #98d49a;
@@ -15,6 +16,12 @@ body {
 	padding-left: 1rem;
 	padding-right: 1rem;
 	padding-top: 1rem;
+}
+
+.app-container {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
 }
 
 #skills {
@@ -189,4 +196,23 @@ hr {
 		padding-right: 2rem;
 		padding-top: 4rem;
 	}
+}
+
+.footer {
+	background-color: #78b589;
+	padding: 1rem;
+	text-align: center;
+	margin-top: 4rem;
+	color: white;
+}
+
+.footer-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.footer p {
+	color: black;
+	margin: 0;
 }

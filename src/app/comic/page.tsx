@@ -58,8 +58,8 @@ export default async function Comic() {
 		<div className="comic">
 			<div className="comic-title">{comic.safe_title}</div>
 			<Image
-				width={50}
-				height={50}
+				priority
+				fill
 				src={comic.img}
 				alt={comic.alt}
 				className="comic-image"

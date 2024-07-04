@@ -45,6 +45,9 @@ body {
 	display: flex;
 	flex-flow: column;
 	gap: 1rem;
+	position: relative;
+	height: 20vh;
+	width: 100%;
 }
 
 .comic-title {
@@ -52,7 +55,11 @@ body {
 }
 
 .comic-image {
+	position: absolute;
+	top: 0;
+	left: 0;
 	width: 100%;
+	height: 100%;
 }
 
 .comic-upload-date {
@@ -195,6 +202,10 @@ hr {
 		padding-left: 2rem;
 		padding-right: 2rem;
 		padding-top: 4rem;
+	}
+
+	.comic {
+		height: 40vh;
 	}
 }
 

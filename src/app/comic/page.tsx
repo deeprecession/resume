@@ -57,13 +57,15 @@ export default async function Comic() {
 	return (
 		<div className="comic">
 			<div className="comic-title">{comic.safe_title}</div>
-			<Image
-				priority
-				fill
-				src={comic.img}
-				alt={comic.alt}
-				className="comic-image"
-			></Image>
+			<div className="comic-image-container">
+				<Image
+					priority
+					fill
+					src={comic.img}
+					alt={comic.alt}
+					className="comic-image"
+				></Image>
+			</div>
 			<div className="comic-upload-date">
 				{moment([comic.year, comic.month, comic.day]).fromNow()}
 			</div>

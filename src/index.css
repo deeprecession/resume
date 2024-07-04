@@ -46,8 +46,15 @@ body {
 	flex-flow: column;
 	gap: 1rem;
 	position: relative;
-	height: 20vh;
 	width: 100%;
+}
+
+.comic-image-container {
+	display: flex;
+	flex-flow: column;
+	gap: 1rem;
+	position: relative;
+	height: 20vh;
 }
 
 .comic-title {
@@ -204,7 +211,7 @@ hr {
 		padding-top: 4rem;
 	}
 
-	.comic {
+	.comic-image-container {
 		height: 40vh;
 	}
 }

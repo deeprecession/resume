@@ -1,6 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import githubSVG from "../../public/github-mark.svg";
+import telegramSVG from "../../public/telegram-mark.svg";
+import emailSVG from "../../public/email-mark.svg";
+
 export default function InfoHeader() {
 	return (
 		<>
@@ -13,12 +17,7 @@ export default function InfoHeader() {
 						className="link-img"
 						href="https://github.com/deeprecession/"
 					>
-						<Image
-							width={50}
-							height={50}
-							src="github-mark.svg"
-							alt="GitHub svg"
-						/>
+						<Image src={githubSVG} alt="GitHub svg" />
 						<div>GitHub</div>
 					</a>
 
@@ -29,12 +28,7 @@ export default function InfoHeader() {
 						className="link-img"
 						href="https://t.me/deeprecession"
 					>
-						<Image
-							width={50}
-							height={50}
-							src="telegram-mark.svg"
-							alt="telegram svg"
-						/>
+						<Image src={telegramSVG} alt="telegram svg" />
 						<span>Telegram</span>
 					</a>
 
@@ -45,12 +39,7 @@ export default function InfoHeader() {
 						className="link-img"
 						href="mailto:v.kishkovskiy@innopolis.university"
 					>
-						<Image
-							width={50}
-							height={50}
-							src="email-mark.svg"
-							alt="email svg"
-						/>
+						<Image src={emailSVG} alt="email svg" />
 						<span>Email</span>
 					</a>
 				</div>

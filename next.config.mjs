@@ -9,22 +9,17 @@ const nextConfig = {
 
   trailingSlash: true,
 
-  output: 'export',
-
-  basePath: isGhPages ? '/inno-frontend-course' : '',
-  assetPrefix: isGhPages ? '/inno-frontend-course/' : '',
-
   images: {
-    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
         hostname: '**',
-        port: '',
-        pathname: '**',
       },
     ],
   },
+
+  basePath: isGhPages ? '/inno-frontend-course' : '',
+  assetPrefix: isGhPages ? '/inno-frontend-course/' : '',
 
   webpack: (webpackConfig) => {
     webpackConfig.resolve.extensionAlias = {

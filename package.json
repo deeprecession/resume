@@ -8,6 +8,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "prettier": "prettier --write .",
     "lint": "next lint",
     "check": "npm-check --production"
   },
@@ -25,9 +26,13 @@
     "@vitejs/plugin-react-swc": "^3.5.0",
     "eslint": "~8.57.0",
     "eslint-config-next": "14.2.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
-    "typescript": "^5.5.3",
-    "npm-check": "^6.0.1"
+    "eslint-plugin-require-extensions": "^0.1.3",
+    "npm-check": "^6.0.1",
+    "prettier": "^3.3.2",
+    "typescript": "^5.5.3"
   }
 }

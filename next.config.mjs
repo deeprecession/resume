@@ -1,30 +1,39 @@
 /** @type {import('next').NextConfig} */
 
-const isGhPages = process.env.DEPLOY_ENV === "GH_PAGES";
+const isGhPages = process.env.DEPLOY_ENV === 'GH_PAGES';
 
 const nextConfig = {
-    reactStrictMode: true,
+  reactStrictMode: true,
 
-    distDir: "./dist",
+  distDir: './dist',
 
-    trailingSlash: true,
+  trailingSlash: true,
 
-    output: "export",
+  output: 'export',
 
-    basePath: isGhPages ? "/inno-frontend-course" : "",
-    assetPrefix: isGhPages ? "/inno-frontend-course/" : "",
+  basePath: isGhPages ? '/inno-frontend-course' : '',
+  assetPrefix: isGhPages ? '/inno-frontend-course/' : '',
 
-    images: {
-        unoptimized: true,
-        remotePatterns: [
-            {
-                protocol: "https",
-                hostname: "**",
-                port: "",
-                pathname: "**",
-            },
-        ],
-    },
+  images: {
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+        port: '',
+        pathname: '**',
+      },
+    ],
+  },
+
+  webpack: (webpackConfig) => {
+    webpackConfig.resolve.extensionAlias = {
+      '.js': ['.ts', '.tsx', '.js', '.jsx'],
+      '.mjs': ['.mts', '.mjs'],
+      '.cjs': ['.cts', '.cjs'],
+    };
+    return webpackConfig;
+  },
 };
 
 export default nextConfig;

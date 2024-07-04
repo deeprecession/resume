@@ -5,8 +5,8 @@ import Footer from './Footer.js';
 import InfoHeader from './InfoHeader.js';
 
 export const metadata: Metadata = {
-  title: 'Blog',
-  description: 'A homework for innopolis frontend course',
+  title: 'My first site',
+  description: 'This is my first site on NextJS!',
 };
 
 export default function RootLayout({

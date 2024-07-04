@@ -10,64 +10,71 @@ interface Comic {
   day: number;
 }
 
-export default async function Comic() {
-  async function fetchComicInfo(id: string) {
-    const url = new URL('https://fwd.innopolis.university/api/comic');
-    url.searchParams.append('id', id);
+async function fetchComicInfo(id: string): Promise<Comic | null> {
+  const url = new URL('https://fwd.innopolis.university/api/comic');
+  url.searchParams.append('id', id);
 
-    let comicJson: Promise<Comic>;
-    try {
-      const response = await fetch(url);
-      comicJson = await response.json();
-    } catch (error) {
-      console.error('failed to make a request:', error);
-
-      return null;
+  try {
+    const response = await fetch(url.toString());
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
     }
-
-    return comicJson;
+    return await response.json();
+  } catch (error) {
+    console.error('Failed to fetch comic info:', error);
+    return null;
   }
+}
 
-  async function fetchID() {
-    const url = new URL('https://fwd.innopolis.university/api/hw2');
-    url.searchParams.append('email', 'v.kishkovksiy@innopolis.university');
+async function fetchID(): Promise<string | null> {
+  const url = new URL('https://fwd.innopolis.university/api/hw2');
+  url.searchParams.append('email', 'v.kishkovksiy@innopolis.university');
 
-    let response: Response;
-    try {
-      response = await fetch(url);
-    } catch (error) {
-      console.error('failed to make a request:', error);
-
-      return null;
+  try {
+    const response = await fetch(url.toString());
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
     }
-
     return await response.text();
+  } catch (error) {
+    console.error('Failed to fetch comic ID:', error);
+    return null;
   }
+}
 
+async function getComicData() {
   const id = await fetchID();
   if (!id) {
-    return <div>Failed to load comic ID.</div>;
+    return { error: 'Failed to load comic ID.' };
   }
 
   const comic = await fetchComicInfo(id);
   if (!comic) {
-    return <div>Failed to load comic data.</div>;
+    return { error: 'Failed to load comic data.' };
+  }
+
+  return { comic };
+}
+
+export default async function ComicPage() {
+  const { comic, error } = await getComicData();
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+  if (comic == undefined) {
+    return <div>Comic is not found</div>;
   }
 
   return (
     <div className="comic">
       <div className="comic-title">{comic.safe_title}</div>
       <div className="comic-image-container">
-        <Image
-          priority
-          fill
-          src={comic.img}
-          alt={comic.alt}
-          className="comic-image"
-        ></Image>
+        <Image priority src={comic.img} alt={comic.alt} fill />
       </div>
       <div className="comic-upload-date">
-        {moment([comic.year, comic.month, comic.day]).fromNow()}
+        {moment([comic.year, comic.month - 1, comic.day]).fromNow()}
       </div>
     </div>
   );

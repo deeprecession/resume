@@ -7,10 +7,7 @@
     "plugin:require-extensions/recommended",
     "prettier"
   ],
-  "plugins": [
-    "require-extensions",
-    "prettier"
-  ],
+  "plugins": ["require-extensions", "prettier"],
   "rules": {
     "prettier/prettier": "error"
   }

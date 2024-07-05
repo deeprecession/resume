@@ -17,6 +17,14 @@
       "static/chunks/231-773a4a36f18be03c.js",
       "static/chunks/app/layout-8dc4435ec9f4870f.js"
     ],
+    "/comic/page": [
+      "static/chunks/webpack-37def67ee9450bb9.js",
+      "static/chunks/fd9d1056-be48aeae6e94b8d1.js",
+      "static/chunks/23-3975f215597b66b5.js",
+      "static/chunks/main-app-0f9e3d1afdb586bf.js",
+      "static/chunks/173-8ce792a517e96f32.js",
+      "static/chunks/app/comic/page-b670e1772b5d7b7d.js"
+    ],
     "/blog/page": [
       "static/chunks/webpack-37def67ee9450bb9.js",
       "static/chunks/fd9d1056-be48aeae6e94b8d1.js",
@@ -31,14 +39,6 @@
       "static/chunks/main-app-0f9e3d1afdb586bf.js",
       "static/chunks/173-8ce792a517e96f32.js",
       "static/chunks/app/page-02db2edc0628e740.js"
-    ],
-    "/comic/page": [
-      "static/chunks/webpack-37def67ee9450bb9.js",
-      "static/chunks/fd9d1056-be48aeae6e94b8d1.js",
-      "static/chunks/23-3975f215597b66b5.js",
-      "static/chunks/main-app-0f9e3d1afdb586bf.js",
-      "static/chunks/173-8ce792a517e96f32.js",
-      "static/chunks/app/comic/page-b670e1772b5d7b7d.js"
     ]
   }
 }
